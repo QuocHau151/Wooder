@@ -1,0 +1,36 @@
+// css footer
+.footer {
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      @include mid($flex: false);
+    }
+    p {
+      font-family: "pr";
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      line-height: 20px;
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+}
+@include sm {
+  .footer__content {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    img {
+      position: relative;
+      margin-top: 30px;
+      margin-bottom: 5px;
+    }
+  }
+}
