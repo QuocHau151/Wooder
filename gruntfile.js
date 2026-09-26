@@ -33,17 +33,16 @@ module.exports = (grunt) => {
       },
     },
     sass: {
-      dist: {
-        options: {
-          style: "compressed",
-          sourcemap: false,
-          noCache: false,
-          lineNumbers: false,
-        },
-        files: {
-          "<%= dirs.dest %>/style.min.css": "<%= dirs.scss %>/style.scss",
-        },
+      options: {
+        implementation: require('sass'),
+        outputStyle: 'compressed',
+        sourceMap: false
       },
+      dist: {
+        files: {
+          "<%= dirs.dest %>/style.min.css": "<%= dirs.scss %>/style.scss"
+        }
+      }
     },
 
     watch: {
@@ -80,7 +79,7 @@ module.exports = (grunt) => {
 
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-contrib-sass");
+  grunt.loadNpmTasks("grunt-sass"); // Changed from grunt-contrib-sass
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-browser-sync");
   grunt.registerTask("default", ["browserSync", "watch"]);
